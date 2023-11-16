@@ -9,11 +9,11 @@ const userController = require("../controllers/userController");
 userRouter.get("/", userController.getUsers);
 
 userRouter.get("/:id", userController.getUserById);
-
+ 
 userRouter.post("/", userController.createUser);
 
-userRouter.post("/:id", userController.updateUser);
+userRouter.put("/:id", userController.updateUser); //userRouter.put
 
-userRouter.delete("/:id", userController.getUserById);
+userRouter.delete("/:id", userController.deleteUser); //userController.deleteUser
 
 module.exports = userRouter;

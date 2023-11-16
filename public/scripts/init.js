@@ -1,7 +1,7 @@
 const API_URL = "/api/users/";
 
 async function requestCRUD(method, data) {
-    let result;
+    let result; 
     switch (method) {
         case 'GET':
             let getResponse = await fetch(data ? API_URL + data.id : API_URL);

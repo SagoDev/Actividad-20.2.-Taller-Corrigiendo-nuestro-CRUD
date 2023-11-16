@@ -5,7 +5,7 @@ function showDatos(datos) {
     for (const item of datos) {
         HTMLContentToAppend = `
         <li class="list-group-item bg-dark text-white">
-            ID: ${item.id} <br>
+            ID: ${item.id} <br> 
             NAME: ${item.name} <br>
             LASTNAME: ${item.lastname}
         </li>
@@ -95,22 +95,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
     document.getElementById("btnPut").addEventListener("click", () => {
         let id = document.getElementById("inputPutId").value
-        let nameInput = document.getElementById("inputPutNobre");
+        let nameInput = document.getElementById("inputPutNombre"); 
         let lastNameInput = document.getElementById("inputPutApellido");
         requestCRUD('GET', { id })
             .then((response) => {
                 if (response) {
                     nameInput.value = response.name;
-                    lastNameInput.value = response.lastname;
-                    let dataModal = new bootstrap.Modal(document.getElementById("dataModal"));
-                    dataModal.show();
+                    lastNameInput.value = response.lastname;                    
                     document.getElementById("btnSendChanges").addEventListener("click", () => {
                         putDatos({
                             id,
                             name: nameInput.value,
                             lastname: lastNameInput.value
                         })
-                        dataModal.hide()
                     })
 
                 } else {
